@@ -1,0 +1,36 @@
+{
+  "name": "@portfolio/cms",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --no-deprecation node_modules/next/dist/bin/next dev --hostname 127.0.0.1 --port 3001",
+    "build": "node --no-deprecation --max-old-space-size=8000 node_modules/next/dist/bin/next build",
+    "start": "node --no-deprecation node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3001",
+    "payload": "node --no-deprecation node_modules/payload/bin.js",
+    "seed": "node --no-deprecation node_modules/tsx/dist/cli.mjs src/seed.ts",
+    "generate:importmap": "node --no-deprecation node_modules/payload/bin.js generate:importmap",
+    "generate:types": "node --no-deprecation node_modules/payload/bin.js generate:types",
+    "check": "node node_modules/typescript/bin/tsc --noEmit"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "3.85.0",
+    "@payloadcms/next": "3.85.0",
+    "@payloadcms/richtext-lexical": "3.85.0",
+    "@payloadcms/ui": "3.85.0",
+    "cross-env": "10.1.0",
+    "graphql": "16.14.0",
+    "next": "16.2.6",
+    "payload": "3.85.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.15",
+    "@types/react-dom": "19.2.3",
+    "tsx": "4.21.0",
+    "typescript": "6.0.3"
+  }
+}
