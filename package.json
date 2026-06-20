@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-persona-cms",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@11.5.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel --no-bail dev",
+    "dev:web": "pnpm --filter @portfolio/web dev",
+    "dev:cms": "pnpm --filter @portfolio/cms dev",
+    "build": "pnpm -r build",
+    "build:static": "pnpm --filter @portfolio/web run build:static",
+    "check": "pnpm -r check",
+    "export:content": "node scripts/export-cms-content.mjs",
+    "generate:types": "pnpm --filter @portfolio/cms generate:types"
+  }
+}
