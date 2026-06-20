@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Rajdhani", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-display: "Cinzel", ui-serif, Georgia, serif;
+  --color-ink: #050505;
+  --color-paper: #f6f2e9;
+  --color-loud-red: #ef1019;
+  --color-loud-red-dark: #9b0007;
+  --color-cyber-cyan: #00d9ff;
+  --color-charge-yellow: #ffd23f;
+  --color-velvet-navy: #08112e;
+  --color-velvet-blue: #0d1b4b;
+  --color-velvet-blue-soft: #1e3070;
+  --color-velvet-gold: #c8972a;
+  --color-velvet-gold-soft: #f0c84a;
+  --color-velvet-cream: #e8dfc4;
+  --color-velvet-mist: #8ba0c8;
+  --animate-lines-drift: lines-drift 5s linear infinite;
+  --animate-slam-in: slam-in 780ms cubic-bezier(0.18, 0.96, 0.2, 1) both;
+  --animate-slash-snap: slash-snap 900ms cubic-bezier(0.18, 0.96, 0.2, 1) both;
+  --animate-card-pop: card-pop 1000ms cubic-bezier(0.18, 0.96, 0.2, 1) both;
+  --animate-sticker-float: sticker-float 2.8s ease-in-out infinite;
+  --animate-ticker: ticker 18s linear infinite;
+  --animate-meter-pop: meter-pop 900ms cubic-bezier(0.18, 0.96, 0.2, 1) both;
+  --animate-p5-spin: p5-spin 2.4s linear infinite;
+  --animate-p5-pulse: p5-pulse 1.8s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-color: #ef1019 #111118;
+    scrollbar-width: thin;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.12) 2px,
+      rgba(0, 0, 0, 0.12) 3px
+    );
+  }
+
+  ::selection {
+    background: #ef1019;
+    color: #ffffff;
+  }
+}
+
+@keyframes slam-in {
+  from {
+    opacity: 0;
+    transform: translateX(-2rem) rotate(-2deg) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes lines-drift {
+  from {
+    transform: translateX(-4rem);
+  }
+  to {
+    transform: translateX(4rem);
+  }
+}
+
+@keyframes meter-pop {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes slash-snap {
+  from {
+    opacity: 0;
+    transform: translateX(8rem) rotate(4deg) skewX(-12deg);
+  }
+}
+
+@keyframes card-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem) rotate(13deg) scale(0.86);
+  }
+}
+
+@keyframes sticker-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-0.35rem) rotate(2deg);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes p5-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes p5-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
