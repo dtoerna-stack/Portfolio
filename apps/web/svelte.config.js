@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto'
+import adapter from './static-snapshot-adapter.js'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 const config = {
