@@ -16,15 +16,15 @@ if not exist "%ROOT%\.git" (
 cd /d "%ROOT%"
 
 echo Exporting content from local Payload CMS...
-"%ROOT%\scripts\pnpm.cmd" run export:content
+call "%ROOT%\scripts\pnpm.cmd" run export:content
 if errorlevel 1 exit /b 1
 
 echo Building static website...
-"%ROOT%\scripts\pnpm.cmd" run build:static
+call "%ROOT%\scripts\pnpm.cmd" --filter @portfolio/web run build:static
 if errorlevel 1 exit /b 1
 
 git status --short
-git add apps/web/src/lib/generated-content.json
+git add apps/web/src/lib/generated-content.json scripts/publish-site.cmd
 git diff --cached --quiet
 if errorlevel 1 (
   git commit -m "chore: publish portfolio content"
